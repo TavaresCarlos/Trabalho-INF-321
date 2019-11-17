@@ -17,6 +17,7 @@ function login(){
 					    <small id="emailHelp" class="form-text text-muted">Mantenha em segurança seu login e senha</small>
 					</div>
 					<button type="submit" class="btn btn-primary">Entrar</button>
+					<button type="submit" class="btn btn-primary" onclick="home()">Voltar</button>
 					<br><br>
 			 	</div>
 			 	<div class="col-xl-4" id="left">
