@@ -1,4 +1,4 @@
-<h1>Trabalho prático INF 321</h1>
+<h1>Trabalho prático INF 321 - Sistemas para Web</h1>
 <p>Desenvolvido com:
 <ul>
 <li>HTML</li>
