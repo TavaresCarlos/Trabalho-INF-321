@@ -5,5 +5,8 @@
 <li>CSS</li>
 <li>Javascript</li>
 <li>Bootstrap</li>
+<li>PHP</li>
+<li>Banco de dados MySQL</li>
 </ul>
 <h2>Descrição</h2>
+<p>Em breve.</p>
