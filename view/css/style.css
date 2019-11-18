@@ -8,10 +8,13 @@ html, body{
 	padding-top: 20%;
 	font-size: 20px;
 }
-
 #login{
 	border-style: solid;
 	border-width: 1px;
 	border-color: #5e00a3;
 	box-shadow: 10px 10px 10px 5px #5e00a3;
 }
+#formulario-cadastro{
+	color: white;
+}
+
