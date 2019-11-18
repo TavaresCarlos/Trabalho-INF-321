@@ -8,8 +8,8 @@ function login(){
 			 	</div>
 			 	<div id="login" class="col-xl-4">
 			 		<div class="form-group">
-					    <label for="exampleInputEmail1">Usuário:</label>
-					    <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" placeholder="Nome do Usuário">
+					    <label for="exampleInputEmail1">Email:</label>
+					    <input type="text" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp" placeholder="Email di usuário">
 					</div>
 					<div class="form-group">
 					    <label for="exampleInputPassword1">Senha:</label>
