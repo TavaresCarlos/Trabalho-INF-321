@@ -9,7 +9,7 @@ function cadastro(){
 				<fieldset>
 					<legend>Dados cadastrais</legend>
 						<label for="exampleInputEmail1">Nome completo</label>
-			    			<input type="text" class="form-control" id="nome" name="name" aria-describedby="emailHelp" placeholder="Nome completo">
+			    			<input type="text" class="form-control" id="nome" name="name" aria-describedby="emailHelp" placeholder="Nome completo" required>
 			    		<label for="exampleFormControlSelect1">Sexo</label>
 						    <select class="form-control" id="exampleFormControlSelect1">
 						    	<option value="null">---------</option>
