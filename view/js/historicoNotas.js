@@ -1,7 +1,7 @@
 function historico(){
 	var menu = document.getElementById('painel-secundario');
 	menu.innerHTML = `
-		<div class="cardNota" style="padding-left: 1%; padding-top: 1%;">
+		<div id="draggable" class=class="ui-widget-content" style="padding-left: 1%; padding-top: 1%;">
 			<div class="card" style="width: 18rem;">
 			  <img class="card-img-top" src="img/1.jpg" alt="Card image cap">
 			  <div class="card-body">
