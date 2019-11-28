@@ -33,11 +33,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!--My JS-->
-    <script src="js/pagina-inicial.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/cadastro.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/historicoNotas.js"></script>
+    <script src="js/redirecionar-paginas.js"></script>
 
     <title>Trust Note</title>
   </head>
@@ -53,7 +49,7 @@
                     <div class="col-sm-10">
                     </div>
                     <div class="col-sm-1">
-                        <button type="button" class="btn btn-light"><a href="index.html">Logout</a></button>
+                        <button type="button" class="btn btn-light" onclick="logout()">Logout</button>
                      </div>
                 </nav>
             </div>
@@ -63,13 +59,13 @@
                  <img src="img/1.jpg" class="card-img-top" alt="..." id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>
-                   <button type="button" class="btn btn-primary btn-lg btn-block">Home</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block">Nova nota</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block">Histórico de notas</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="home()">Home</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="nota()">Nova nota</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="historico()">Histórico de notas</button>
                 </div>
             </div>
             <div class="col-sm-10">
-                col-sm-4
+                HOME
             </div>
         </div>
     </div>
