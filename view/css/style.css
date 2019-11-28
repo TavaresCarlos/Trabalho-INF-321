@@ -1,9 +1,10 @@
 html, body{
 	height: 100%;
 	background-color: #e3f2fd;
+	width: 96%;
 }
 #botao-login{
-	margin-left: 50%;
+	padding-left: 5%;
 }
 #menu{
 	background-color: #e3f2fd;
@@ -25,3 +26,10 @@ html, body{
 	margin-left: 2%;
 	margin-top: 2%;
 }
+#formulario{
+	width: 99%;
+}
+#titulo-modal{
+	color: #00bfff;
+}
+
