@@ -8,5 +8,7 @@
 <li>PHP</li>
 <li>Banco de dados MySQL</li>
 </ul>
+<h2>Instalação</h2>
+<p>Em breve.</p>
 <h2>Descrição</h2>
 <a href="https://github.com/TavaresCarlos/Trabalho-INF-321/blob/master/trabalho-inf-321.pdf">Clique aqui</a>
