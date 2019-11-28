@@ -65,7 +65,26 @@
                 </div>
             </div>
             <div class="col-sm-10">
-                NOVA NOTA
+                <form metho="" action="POST" id="formulario">
+                    <label for="exampleFormControlInput1">Titulo da nota:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="" required>
+                    <label for="exampleFormControlInput1">Categoria da nota:</label>
+                        <input type="text" class="form-control" id="categoria" name="categoria" placeholder="" required>
+
+                    <label for="exampleFormControlSelect1">Prioridade:</label>
+                        <select class="form-control" id="prioridade" name="prioridade">
+                          <option value="null">---</option>
+                          <option value="p1">P1</option>
+                          <option value="p2">P2</option>
+                          <option value="p3" >P3</option>
+                          <option value="s">S</option>
+                        </select>
+
+                    <label for="exampleFormControlTextarea1">Descrição:</label>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+                </form>
             </div>
         </div>
     </div>
