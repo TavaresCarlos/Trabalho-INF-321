@@ -34,11 +34,11 @@
 
     <!--My JS-->
     <script src="js/redirecionar-paginas.js"></script>
+    <script src="js/ordenar.js"></script>
 
     <title>Trust Note</title>
   </head>
-  <!--<body onload="home()">-->
-    <body onload="acesso()">
+    <body onload="">
     <div id="menu">
         <div class="row">
             <div class="col-sm-12">
@@ -94,7 +94,19 @@
                       </div>
                     </div>
                 </div>
-                <br>
+                <div class="col-sm-2">
+                </div>
+                <div class="col-sm-2">
+                	<form action="" method="POST">
+	                	<label for="exampleFormControlSelect1">Ordenar por:</label>
+	                        <select class="form-control" id="ordenar" name="ordenar" onchange="ordenar()">
+	                          <option value="null">---</option>
+	                          <option value="prioridade">Prioridade</option>
+	                          <option value="data">Data</option>
+	                          <option value="categoria" >Categoria</option>
+	                        </select>
+	                </form>
+                </div>
             </div>
             <br>
             <!--Linha 02-->
