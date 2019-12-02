@@ -15,3 +15,7 @@ function nota(){
 function logout(){
 	window.location.href = "index.html";
 }
+
+function alterarSenha(){
+	window.location.href = "alterar-senha.html";
+}

@@ -8,13 +8,13 @@ PRIMARY KEY (idUsuario)
 )
 
 CREATE TABLE nota(
-idNota int AUTO_INCREMENT NOT_NULL
+idNota int AUTO_INCREMENT NOT_NULL,
 idUsuario int,
 descricao varchar (200),
 data date,
 subtitulo varchar (50),
 titulo varchar (20),
-status 
+status int,
 prioridade varchar (2),
 usuarioProprietario varchar (50),
 CONSTRAINT fk_usuarioNota FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario),

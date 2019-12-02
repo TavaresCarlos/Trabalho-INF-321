@@ -56,7 +56,7 @@
         </div>
         <div class="row">
             <div class="col-sm-2" id="menu-lateral">
-                 <img src="img/1.jpg" class="card-img-top" alt="..." id="imagem-perfil">
+                 <img src="img/1.jpg" class="card-img-top" alt="Imagem indisponível" id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>
                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="home()">Home</button>
@@ -66,7 +66,14 @@
                 </div>
             </div>
             <div class="col-sm-10">
-                HOME
+                <form action="" method="POST">
+                    <label for="exampleFormControlInput1">Nova senha:</label>
+                        <input type="password" class="form-control" id="novaSenha" name="novaSenha" placeholder="" required>
+                    <label for="exampleFormControlInput1">Confirmar nova senha:</label>
+                        <input type="password" class="form-control" id="confirmarNovaSenha" name="confirmarNovaSenha" placeholder="" required>
+                    <br>
+                    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
+                </form>
             </div>
         </div>
     </div>
