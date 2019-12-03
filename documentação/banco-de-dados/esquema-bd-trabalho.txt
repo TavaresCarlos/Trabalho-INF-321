@@ -1,14 +1,14 @@
 CREATE TABLE usuario(
-idUsuario int AUTO_INCREMENT NOT_NULL,
+idUsuario int AUTO_INCREMENT NOT NULL,
 tipoUsuario varchar (12),
 email varchar (30),
-nome (50),
-senha (30,
+nome varchar (50),
+senha varchar (30),
 PRIMARY KEY (idUsuario)
-)
+);
 
 CREATE TABLE nota(
-idNota int AUTO_INCREMENT NOT_NULL,
+idNota int AUTO_INCREMENT NOT NULL,
 idUsuario int,
 descricao varchar (200),
 data date,
@@ -19,4 +19,4 @@ prioridade varchar (2),
 usuarioProprietario varchar (50),
 CONSTRAINT fk_usuarioNota FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario),
 PRIMARY KEY (idNota)
-)
+);
