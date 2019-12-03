@@ -41,11 +41,6 @@
 		}
 
 		//Funções para persistência no banco de dados
-
-		function cadastroUsuario(){
-
-		}
-
 	}
 
 	class notas{
@@ -86,11 +81,6 @@
 		}
 
 		//Funções para persistência no banco de dados
-
-		function cadastro novaNota(){
-
-		}
-
 	}
 
 ?>

@@ -20,3 +20,13 @@ usuarioProprietario varchar (50),
 CONSTRAINT fk_usuarioNota FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario),
 PRIMARY KEY (idNota)
 );
+
+CREATE TABLE compartilhados(
+idCompartilhado int AUTO_INCREMENT NOT NULL,
+idUsuario int,
+idNota int,
+CONSTRAINT fk_usuarioCompartilhado FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario),
+CONSTRAINT fk_notaCompartilhado FOREIGN KEY (idnota) REFERENCES nota (idNota),
+PRIMARY KEY (idCompartilhado)
+);
+
