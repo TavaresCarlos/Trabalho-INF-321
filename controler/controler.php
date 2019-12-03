@@ -10,7 +10,7 @@
 		function cadastroNovoUsuario(){
 
 		}
-		function cadastroNovaTarefa(){
+		function cadastroNovaNota(){
 
 		}
 		function novaSenha(){
