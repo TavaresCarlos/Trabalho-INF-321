@@ -54,6 +54,9 @@
 			echo('<script>alert("Cadastro realizado com sucesso. Efetue o login no sistema.");</script>');
 			header('refresh: 0.01; ../view/index.html');
 		}
+		function inserindoNovaNota(){
+
+		}
 	}
 
 	class notas{
