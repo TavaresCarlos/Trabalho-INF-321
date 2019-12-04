@@ -1,7 +1,6 @@
 <?php
-
-	include '../controler/controler.php';
-	include '../controler/conexao.php';
+	
+	include 'conexao.php';
 
 	class usuario{
 		private $nome;
@@ -9,11 +8,11 @@
 		private $senha;
 		private $tipoUsuario;
 
-		function construtorUsuario($_POST['nome'], $_POST['email'], $_POST['senha']){
-			$this->nome = $_POST['nome'];
-			$this->email = $_POST['email'];
-			$this->senha = $_POST['senha'];
-			$this->tipoUsuario = "default";
+		function construtorUsuario($nome, $email, $senha, $tipoUsuario){
+			$this->nome = $nome;
+			$this->email = $email;
+			$this->senha = $senha;
+			$this->tipoUsuario = $tipoUsuario;
 		}
 		function setNome(){	
 			$this->nome = $_POST['nome'];
@@ -25,7 +24,7 @@
 			$this->senha = $_POST['senha'];
 		}
 		function setTipoUsuario(){
-			$this->tipoUsuario = "default"
+			$this->tipoUsuario = "default";
 		}
 		function getNome(){
 			return $nome;
@@ -41,6 +40,20 @@
 		}
 
 		//Funções para persistência no banco de dados
+		function inserindoNovoUsuario(){
+			$conect = new conexao();
+
+			$conect->abrindo_conexao();
+
+			$sql = "INSERT INTO usuario (tipoUsuario, email, nome, senha) VALUES ('$this->tipoUsuario', '$this->email', '$this->nome', '$this->senha')";
+			$resposta = mysqli_query($conect->getConexao(), $sql);
+
+			print_r($resposta);
+
+			$conect->fechando_conexao();
+			echo('<script>alert("Cadastro realizado com sucesso. Efetue o login no sistema.");</script>');
+			header('refresh: 0.01; ../view/index.html');
+		}
 	}
 
 	class notas{
@@ -49,7 +62,7 @@
 		private $prioridade;
 		private $descricao;
 
-		function construtorNotas($_POST['titulo'], $_POST['categoria'], $_POST['prioridade'], $_POST['descricao']){
+		function construtorNotas(){
 			$this->titulo = $_POST['titulo'];
 			$this->categoria = $_POST['categoria'];
 			$this->prioridade = $_POST['prioridade'];
@@ -77,7 +90,7 @@
 			return $prioridade;
 		}
 		function getDescricao(){
-			return $descricao
+			return $descricao;
 		}
 
 		//Funções para persistência no banco de dados
