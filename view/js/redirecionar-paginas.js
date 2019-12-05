@@ -5,7 +5,7 @@ function home(){
 }
 
 function historico(){
-	window.location.href = "historico.html";
+	window.location.href = "historico.php";
 }
 
 function nota(){

@@ -10,9 +10,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-    $(function(){
-        $("#draggable").draggable();
-    });
+ 
     </script>
 
     <!-- Bootstrap JS-->
@@ -65,28 +63,58 @@
                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="alterarSenha()">Alterar senha</button>
                 </div>
             </div>
-            <div class="col-sm-10">
-                <form method="POST" action="../php/redirecionamento-nova-nota.php" id="formulario">
-                    <label for="exampleFormControlInput1">Titulo da nota:</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="" required>
-                    <label for="exampleFormControlInput1">Categoria da nota:</label>
-                        <input type="text" class="form-control" id="categoria" name="categoria" placeholder="" required>
+            <div class="col-sm-8">
+                <?php
 
-                    <label for="exampleFormControlSelect1">Prioridade:</label>
-                        <select class="form-control" id="prioridade" name="prioridade">
-                          <option value="null">---</option>
-                          <option value="p1">P1</option>
-                          <option value="p2">P2</option>
-                          <option value="p3" >P3</option>
-                          <option value="s">S</option>
-                        </select>
+                    include '../model/conexao.php';
 
-                    <label for="exampleFormControlTextarea1">Descrição:</label>
-                        <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
-                    <br>
-                    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
-                </form>
+                    $conect = new conexao();
+                    $conect->abrindo_conexao();
+
+                    session_start();
+                    if((!isset($_SESSION['email'])) && (!isset($_SESSION['senha'])) && (!isset($_SESSION['nome']))){
+                        header('refresh: 0.01; ../view/index.html');
+                    }
+
+                    $usuarioProprietario = implode($_SESSION['nome']);
+         
+                    $sql = "SELECT titulo, subtitulo FROM nota WHERE usuarioProprietario = '$usuarioProprietario'";
+                    $resposta = mysqli_query($conect->getConexao(), $sql);
+
+                    echo('<div class="row">');
+                    while($row = mysqli_fetch_array($resposta)){
+                        echo('<div class="col-sm-3">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">'.$row['titulo'].'</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">'.$row['subtitulo'].'</h6>
+                                                <p class="card-text">Descrição rápida</p>
+                                                    <a href="#" class="card-link">Ver mais</a>
+                                                    <a href="#" class="card-link">Atualizar</a>
+                                                    <a href="#" class="card-link">Apagar</a>
+                                    </div>
+                                   </div>
+                              </div>
+                              <div class="col-sm-2">
+                              </div>');
+                    }
+                    echo('</div>');
+
+                    $conect->fechando_conexao();
+                ?>
+            <br>
             </div>
+            <div class="col-sm-2">
+                    <form action="" method="POST">
+                        <label for="exampleFormControlSelect1">Ordenar por:</label>
+                            <select class="form-control" id="ordenar" name="ordenar" onchange="ordenar()">
+                              <option value="null">---</option>
+                              <option value="prioridade">Prioridade</option>
+                              <option value="data">Data</option>
+                              <option value="categoria" >Categoria</option>
+                            </select>
+                    </form>
+                </div>
         </div>
     </div>
   </body>

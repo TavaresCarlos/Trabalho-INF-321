@@ -5,5 +5,4 @@
 	$controler = new controler();
 	$controler->cadastroNovoUsuario();
 
-
 ?>

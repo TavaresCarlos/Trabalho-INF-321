@@ -14,17 +14,17 @@
 			$this->senha = $senha;
 			$this->tipoUsuario = $tipoUsuario;
 		}
-		function setNome(){	
-			$this->nome = $_POST['nome'];
+		function setNome($nome){	
+			$this->nome = $nome;
 		}
-		function setEmail(){
-			$this->email = $_POST['email'];
+		function setEmail($email){
+			$this->email = $email;
 		}
-		function setSenha(){
-			$this->senha = $_POST['senha'];
+		function setSenha($senha){
+			$this->senha = $senha;
 		}
-		function setTipoUsuario(){
-			$this->tipoUsuario = "default";
+		function setTipoUsuario($tipoUsuario){
+			$this->tipoUsuario = $tipoUsuario;
 		}
 		function getNome(){
 			return $nome;
@@ -48,11 +48,42 @@
 			$sql = "INSERT INTO usuario (tipoUsuario, email, nome, senha) VALUES ('$this->tipoUsuario', '$this->email', '$this->nome', '$this->senha')";
 			$resposta = mysqli_query($conect->getConexao(), $sql);
 
-			print_r($resposta);
-
 			$conect->fechando_conexao();
 			echo('<script>alert("Cadastro realizado com sucesso. Efetue o login no sistema.");</script>');
 			header('refresh: 0.01; ../view/index.html');
+		}
+		function login($email, $senha){
+			$conect = new conexao();
+
+			$conect->abrindo_conexao();
+
+			$sql = "SELECT nome FROM usuario WHERE email = '$email' AND senha = '$senha'";
+			$resposta = mysqli_query($conect->getConexao(), $sql);
+			$resultado = mysqli_fetch_assoc($resposta);
+
+			//Se o usuário está cadastrado no sistema
+			if($resultado)
+			{
+				//Criando sessão com o php
+				session_start();	
+				$_SESSION['email'] = $email;
+				$_SESSION['senha'] = $senha;
+				$_SESSION['nome'] = $resultado;
+
+				header('refresh: 0.01; ../view/home.html');
+			}
+			//Se o usuário não está cadastrado no sistema
+			else
+			{
+				unset($_SESSION['email']);
+  				unset($_SESSION['senha']);
+  				unset($_SESSION['nome']);
+
+				echo('<script>alert("Email e/ou senha inválido(s). Tente novamente.");</script>');
+				header('refresh: 0.01; ../view/index.html');
+			}
+
+			$conect->fechando_conexao();
 		}
 		function inserindoNovaNota(){
 
@@ -65,23 +96,40 @@
 		private $prioridade;
 		private $descricao;
 
-		function construtorNotas(){
-			$this->titulo = $_POST['titulo'];
-			$this->categoria = $_POST['categoria'];
-			$this->prioridade = $_POST['prioridade'];
-			$this->descricao = $_POST['descricao'];
+		private $data;
+		private $status;
+
+		private $usuarioProprietario;
+
+		function construtorNotas($titulo, $categoria, $prioridade, $descricao, $data, $status, $usuarioProprietario){
+			$this->titulo = $titulo;
+			$this->categoria = $categoria;
+			$this->prioridade = $prioridade;
+			$this->descricao = $descricao;
+			$this->data = $data;
+			$this->status = $status;
+			$this->usuarioProprietario = $usuarioProprietario;
 		}
-		function setTtitulo(){
-			$this->titulo = $_POST['titulo'];
+		function setTtitulo($titulo){
+			$this->titulo = $titulo;
 		}
-		function setCategoria(){
-			$this->categoria = $_POST['categoria'];
+		function setCategoria($categoria){
+			$this->categoria = $categoria;
 		}
-		function setPrioridade(){
-			$this->prioridade = $_POST['prioridade'];
+		function setPrioridade($prioridade){
+			$this->prioridade = $prioridade;
 		}
-		function setDescricao(){
-			$this->descricao = $_POST['descricao'];
+		function setDescricao($descricao){
+			$this->descricao = $descricao;
+		}
+		function setData($data){
+			$this->data = $data; 
+		}
+		function setStatus($status){
+			$this->status = $status;
+		}
+		function setUsuarioProprietario($usuarioProprietario){
+			$this->usuarioProprietario = $usuarioProprietario;
 		}
 		function getTtitulo(){
 			return $titulo;
@@ -95,8 +143,31 @@
 		function getDescricao(){
 			return $descricao;
 		}
+		function getData(){
+			return $data;
+		}
+		function getStatus(){
+			return $status;
+		}
+		function getUsuariousuarioProprietario(){
+			return $usuarioProprietario;
+		}
+
 
 		//Funções para persistência no banco de dados
+		function inserindoNovaNota(){
+			$conect = new conexao();
+
+			$conect->abrindo_conexao();
+
+			$sql = "INSERT INTO nota (descricao, data, subtitulo, titulo, status, prioridade, usuarioProprietario) VALUES ('$this->descricao', '$this->data', '$this->categoria', '$this->titulo', '$this->status', '$this->prioridade', '$this->usuarioProprietario')";
+
+			$resposta = mysqli_query($conect->getConexao(), $sql);
+		
+			$conect->fechando_conexao();	
+			
+			header('refresh: 0.01; ../view/home.html');
+		}
 	}
 
 ?>

@@ -9,11 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-    $(function(){
-        $("#draggable").draggable();
-    });
-    </script>
 
     <!-- Bootstrap JS-->
     <script src="js/bootstrap/bootstrap.bundle.js"></script>
@@ -37,8 +32,8 @@
 
     <title>Trust Note</title>
   </head>
-  <!--<body onload="home()">-->
-    <body onload="acesso()">
+
+    <body onload="">
     <div id="menu">
 	    <nav class="navbar navbar-expand-lg" id="menu-superior">
 	    	<div class="col-sm-1">
@@ -49,10 +44,10 @@
 			    	<span class="navbar-toggler-icon"></span>
 			  	</button>
                 <!--Botao de cadastro com modal-->
-                <button type="button"  class="btn btn-link" id="login" data-toggle="modal" data-target="#myModal">Sign up to Trust Note</button>
+                <button type="button"  class="btn btn-link" id="cadastro" data-toggle="modal" data-target="#myModal">Sign up to Trust Note</button>
 			</div>
             <div class="col-sm-2">
-                <button type="button" class="btn btn-light" id="botao-login" onclick="home()">Login</button>
+                <button type="button" class="btn btn-light" id="botao-login" data-toggle="modal" data-target="#myModal2">Login</button>
             </div>
 		</nav>
 
@@ -79,6 +74,32 @@
                                     <input type="password" class="form-control" id="confirmaSenha" name="confirmaSenha" placeholder="" required>
                                  <br>
                                 <button type="submit" class="btn btn-primary">Entrar</button>
+                            </form>
+                        </div>
+                   </div>
+              </div>
+            </div>
+        </div>
+        <!--Inicio da implementação do botão de login como modal-->
+        <div class="nav-item active">
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="titulo-modal">Login</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="../php/redirecionamento-login.php" id="login">
+                                <label for="">Email:</label>
+                                    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="" required>
+                                <label for="">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" placeholder="" required>
+                                 <br>
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                                <button type="submit" class="btn btn-primary">Recuperar senha</button>
                             </form>
                         </div>
                    </div>
