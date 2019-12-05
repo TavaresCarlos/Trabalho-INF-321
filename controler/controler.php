@@ -20,29 +20,40 @@
 
 			$usuario->construtorUsuario($nome, $email, $senha, $tipoUsuario);
 			$usuario->inserindoNovoUsuario();
+
 		}
 		function cadastroNovaNota(){
-			session_start();
-
-			if((!isset($_SESSION['email'])) && (!isset($_SESSION['senha'])) && (!isset($_SESSION['nome']))){
-				header('refresh: 0.01; ../view/index.html');
-			}
 
 			$titulo =  $_POST['titulo'];
 			$categoria =  $_POST['categoria'];
 			$prioridade =  $_POST['prioridade'];
 			$descricao =  $_POST['descricao'];
 			$data = date("y/m/d");
-			$status = "aberto"; 
-			$usuarioProprietario = implode($_SESSION['nome']);
+			$status = "aberto";
 
 			$notas = new notas();
+
+			session_start();
+			$usuarioProprietario = implode($_SESSION['nome']);
 
 			$notas->construtorNotas($titulo, $categoria, $prioridade, $descricao, $data, $status, $usuarioProprietario);
 			$notas->inserindoNovaNota();
 		}
 		function novaSenha(){
+			session_start();
 
+			if((!isset($_SESSION['email'])) && (!isset($_SESSION['senha'])) && (!isset($_SESSION['nome']))){
+				header('refresh: 0.01; ../view/index.html');
+			}
+
+			$novaSenha = $_POST['novaSenha'];
+			
+			$usuario = new usuario();
+
+			$usuario->setSenha($novaSenha);
+			$usuario->alterandoSenha($novaSenha);
+
+			print_r(session_save_path());
 		}
 		function alterarNota(){
 			

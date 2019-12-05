@@ -1,0 +1,4 @@
+OBSERVAÇÕES GERAIS:
+-O usuário "administrador" deve ser definido como tal via banco de dados. Não foi implementado uma opção para um usuário definir se ele 
+é "administrador" ou "default". Via cadastro normal, todos são definidos como sendo "default", ficando somente a cargo do sistema fazer a
+gerência no login.

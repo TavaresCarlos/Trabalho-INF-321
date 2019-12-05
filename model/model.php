@@ -61,32 +61,40 @@
 			$resposta = mysqli_query($conect->getConexao(), $sql);
 			$resultado = mysqli_fetch_assoc($resposta);
 
-			//Se o usuário está cadastrado no sistema
-			if($resultado)
-			{
-				//Criando sessão com o php
-				session_start();	
-				$_SESSION['email'] = $email;
-				$_SESSION['senha'] = $senha;
-				$_SESSION['nome'] = $resultado;
+			//Recuperando o tipo do usuário
+			$sql2 = "SELECT tipoUsuario FROM usuario WHERE email = '$email' AND senha = '$senha'";
+			$resposta2 = mysqli_query($conect->getConexao(), $sql2);
+			$resultado2 = mysqli_fetch_assoc($resposta2);
+			
+			$tipoUsuario = implode($resultado2);
 
+			//Cria a sessão
+			session_start();
+			
+			$_SESSION['email'] = $email;
+			$_SESSION['senha'] = $senha;
+			$_SESSION['nome'] = $resultado;
+
+			if($tipoUsuario == "default")
 				header('refresh: 0.01; ../view/home.html');
-			}
-			//Se o usuário não está cadastrado no sistema
-			else
-			{
-				unset($_SESSION['email']);
-  				unset($_SESSION['senha']);
-  				unset($_SESSION['nome']);
-
-				echo('<script>alert("Email e/ou senha inválido(s). Tente novamente.");</script>');
-				header('refresh: 0.01; ../view/index.html');
-			}
+			if($tipoUsuario == "administrador")
+				header('refresh: 0.01; ../view/index-admin.html');
 
 			$conect->fechando_conexao();
 		}
-		function inserindoNovaNota(){
+		function alterandoSenha($novaSenha){
+			$conect = new conexao();
 
+			$conect->abrindo_conexao();
+
+			$nome = implode($_SESSION['nome']);
+
+			$sql = "UPDATE usuario SET senha = '$novaSenha' WHERE nome = '$nome'";
+
+			$resposta = mysqli_query($conect->getConexao(), $sql);
+			header('refresh: 0.01; ../view/home.html');
+
+			$conect->fechando_conexao();
 		}
 	}
 

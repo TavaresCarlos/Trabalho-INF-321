@@ -78,7 +78,7 @@
 
                     $usuarioProprietario = implode($_SESSION['nome']);
          
-                    $sql = "SELECT titulo, subtitulo FROM nota WHERE usuarioProprietario = '$usuarioProprietario'";
+                    $sql = "SELECT titulo, subtitulo, descricao FROM nota WHERE usuarioProprietario = '$usuarioProprietario'";
                     $resposta = mysqli_query($conect->getConexao(), $sql);
 
                     echo('<div class="row">');
@@ -88,8 +88,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">'.$row['titulo'].'</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">'.$row['subtitulo'].'</h6>
-                                                <p class="card-text">Descrição rápida</p>
-                                                    <a href="#" class="card-link">Ver mais</a>
+                                                <p class="card-text">'.$row['descricao'].'</p>
                                                     <a href="#" class="card-link">Atualizar</a>
                                                     <a href="#" class="card-link">Apagar</a>
                                     </div>

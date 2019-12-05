@@ -59,21 +59,12 @@
                  <img src="img/1.jpg" class="card-img-top" alt="Imagem indisponível" id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="home()">Home</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="nota()">Nova tarefa</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="historico()">Histórico de notas</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="alterarSenha()">Alterar senha</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="homeAdmin()">Home</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="verUsuariosCadastrados()">Ver usuários cadastrados</button>
                 </div>
             </div>
             <div class="col-sm-10">
-                <form action="../php/redirecionamento-nova-senha.php" method="POST">
-                    <label for="exampleFormControlInput1">Nova senha:</label>
-                        <input type="password" class="form-control" id="novaSenha" name="novaSenha" placeholder="" required>
-                    <label for="exampleFormControlInput1">Confirmar nova senha:</label>
-                        <input type="password" class="form-control" id="confirmarNovaSenha" name="confirmarNovaSenha" placeholder="" required>
-                    <br>
-                    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
-                </form>
+               PAINEL DO ADMINISTRADOR
             </div>
         </div>
     </div>

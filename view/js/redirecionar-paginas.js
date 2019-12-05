@@ -19,3 +19,11 @@ function logout(){
 function alterarSenha(){
 	window.location.href = "alterar-senha.html";
 }
+
+function verUsuariosCadastrados(){
+	window.location.href = "ver-usuarios-cadastrados.php";
+}
+
+function homeAdmin(){
+	window.location.href = "index-admin.html";
+}

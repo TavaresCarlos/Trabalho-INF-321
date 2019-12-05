@@ -59,21 +59,47 @@
                  <img src="img/1.jpg" class="card-img-top" alt="Imagem indisponível" id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="home()">Home</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="nota()">Nova tarefa</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="historico()">Histórico de notas</button>
-                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="alterarSenha()">Alterar senha</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="homeAdmin()">Home</button>
+                   <button type="button" class="btn btn-primary btn-lg btn-block" onclick="verUsuariosCadastrados()">Ver usuários cadastrados</button>
                 </div>
             </div>
             <div class="col-sm-10">
-                <form action="../php/redirecionamento-nova-senha.php" method="POST">
-                    <label for="exampleFormControlInput1">Nova senha:</label>
-                        <input type="password" class="form-control" id="novaSenha" name="novaSenha" placeholder="" required>
-                    <label for="exampleFormControlInput1">Confirmar nova senha:</label>
-                        <input type="password" class="form-control" id="confirmarNovaSenha" name="confirmarNovaSenha" placeholder="" required>
-                    <br>
-                    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
-                </form>
+               <?php
+
+                    include '../model/conexao.php';
+
+                    $conect = new conexao();
+                    $conect->abrindo_conexao();
+
+                    session_start();
+                    if((!isset($_SESSION['email'])) && (!isset($_SESSION['senha'])) && (!isset($_SESSION['nome']))){
+                        header('refresh: 0.01; ../view/index.html');
+                    }
+
+                    $sql = "SELECT nome, email FROM usuario WHERE tipoUsuario = 'default'";
+                    $resposta = mysqli_query($conect->getConexao(), $sql);
+
+                    echo('<div class="row">');
+                        while($row = mysqli_fetch_array($resposta)){
+                            echo('<div class="col-sm-3">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">'.$row['nome'].'</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Usuário default</h6>
+                                            <p class="card-text">Email: '.$row['email'].'</p>
+                                            <a href="#" class="card-link">Ver notas</a>
+                                            <a href="#" class="card-link">Alterar dados</a>
+                                        </div>
+                                    </div>
+                                  </div>
+                                 <div class="col-sm-2">
+                                 </div>');
+                        }
+
+                    echo('</div>');
+                    $conect->fechando_conexao();
+
+               ?>
             </div>
         </div>
     </div>
