@@ -29,7 +29,7 @@
 			$prioridade =  $_POST['prioridade'];
 			$descricao =  $_POST['descricao'];
 			$data = date("y/m/d");
-			$status = "aberto";
+			$status = $_POST['status'];
 
 			$notas = new notas();
 

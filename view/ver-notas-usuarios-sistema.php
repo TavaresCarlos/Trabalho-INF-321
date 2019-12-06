@@ -71,27 +71,20 @@
                         header('refresh: 0.01; ../view/index.html');
                     }
 
-                    $sql = "SELECT nome, email FROM usuario WHERE tipoUsuario = 'default'";
+                    
+                    $usuario = $_GET['nome'];
+
+                    $sql = "SELECT titulo, subtitulo, status, prioridade, data, descricao FROM notas WHERE usuarioProprietario = '$usuario'";
                     $resposta = mysqli_query($conect->getConexao(), $sql);
 
-                    echo('<div class="row">');
+                    print_r($resposta);
+
+                    /*echo('<div class="row">');
                         while($row = mysqli_fetch_array($resposta)){   
-                            echo('<div class="col-sm-3">
-                                    <div class="card" style="width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">'.$row['nome'].'</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Usuário default</h6>
-                                            <p class="card-text">Email: '.$row['email'].'</p>
-                                            <a href="ver-notas-usuarios-sistema.php?nome='.$row['nome'].'"" class="card-link">Ver notas</a>
-                                            <a href="#" class="card-link">Alterar dados</a>
-                                        </div>
-                                    </div>
-                                  </div>
-                                 <div class="col-sm-2">
-                                 </div>');
+                            //echo();
                         }
 
-                    echo('</div>');
+                    echo('</div>');*/
                     $conect->fechando_conexao();
 
                ?>

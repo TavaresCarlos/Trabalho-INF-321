@@ -2,3 +2,6 @@ OBSERVAÇÕES GERAIS:
 -O usuário "administrador" deve ser definido como tal via banco de dados. Não foi implementado uma opção para um usuário definir se ele 
 é "administrador" ou "default". Via cadastro normal, todos são definidos como sendo "default", ficando somente a cargo do sistema fazer a
 gerência no login.
+
+-Para fechar uma nota aberta, basta ir em "Histórico de notas" >> nota que deseja fechar >> "Atualizar", ai basta alterar o status dela
+de aberto para fechado.

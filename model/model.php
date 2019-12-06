@@ -65,7 +65,7 @@
 			$sql2 = "SELECT tipoUsuario FROM usuario WHERE email = '$email' AND senha = '$senha'";
 			$resposta2 = mysqli_query($conect->getConexao(), $sql2);
 			$resultado2 = mysqli_fetch_assoc($resposta2);
-			
+				
 			$tipoUsuario = implode($resultado2);
 
 			//Cria a sessão
