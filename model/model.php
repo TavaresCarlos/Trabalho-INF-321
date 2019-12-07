@@ -66,6 +66,11 @@
 			$resposta2 = mysqli_query($conect->getConexao(), $sql2);
 			$resultado2 = mysqli_fetch_assoc($resposta2);
 
+			if($resultado2 == NULL){
+				echo('<script>alert("Usuário e/ou senha incorreto(s). Tente novamente.");</script>');
+				header('refresh: 0.01; ../view/index.html');
+			}
+
 			$tipoUsuario = implode($resultado2);
 
 			//Cria a sessão

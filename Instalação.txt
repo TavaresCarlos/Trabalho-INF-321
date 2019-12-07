@@ -1,7 +1,16 @@
-OBSERVAÇÕES GERAIS:
+INSTALAÇÃO:
+-Baixe o pacote compacto dos arquivos de instalação.
+-Após iniciar o Apache e o PhpMyAdmin, gere o banco de dados copiando o esquema sql do banco.
+do arquivo "documentação" >> "banco-de-dados" >> "esquema-bd-trabalho.txt".
+-Abra o arquivo "model" >> "conexao.php" e altere o nome da váriavel "$bd" (linha 11) de acordo com o nome da base de dados definida.
+-Execute o sistema
+
+USO:
+-Basta clicar em "Sign up to Trust Note" para se cadastrar no sistema.
+-Depois basta ir em "Login" e informar o email e a senha definidos.
+-Pronto. Você já estará logado
+
+OBSERVAÇÕES GERAIS DE USO:
 -O usuário "administrador" deve ser definido como tal via banco de dados. Não foi implementado uma opção para um usuário definir se ele 
 é "administrador" ou "default". Via cadastro normal, todos são definidos como sendo "default", ficando somente a cargo do sistema fazer a
 gerência no login.
-
--Para fechar uma nota aberta, basta ir em "Histórico de notas" >> nota que deseja fechar >> "Atualizar", ai basta alterar o status dela
-de aberto para fechado.
