@@ -9,7 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
  
+    </script>
+
     <!-- Bootstrap JS-->
     <script src="js/bootstrap/bootstrap.bundle.js"></script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
@@ -60,34 +63,41 @@
                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="alterarSenha()">Alterar senha</button>
                 </div>
             </div>
-            <div class="col-sm-10">
-                <form method="POST" action="../php/redirecionamento-nova-nota.php" id="formulario">
-                    <label for="exampleFormControlInput1">Titulo da nota:</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="" required>
-                    <label for="exampleFormControlInput1">Categoria da nota:</label>
-                        <input type="text" class="form-control" id="categoria" name="categoria" placeholder="" required>
+            <div class="col-sm-8">
+                <?php
 
-                    <label for="exampleFormControlSelect1">Prioridade:</label>
-                        <select class="form-control" id="prioridade" name="prioridade">
-                          <option value="null">---</option>
-                          <option value="P1">P1</option>
-                          <option value="P2">P2</option>
-                          <option value="P3" >P3</option>
-                          <option value="S">S</option>
-                        </select>
+                    include '../model/conexao.php';
 
-                    <label for="exampleFormControlSelect1">Status:</label>
-                        <select class="form-control" id="status" name="status">
-                          <option value="null">---</option>
-                          <option value="Cumprido">Cumprido</option>
-                          <option value="Nao cumprido">Não cumprido</option>
-                      </select>
+                    $conect = new conexao();
+                    $conect->abrindo_conexao();
 
-                    <label for="exampleFormControlTextarea1">Descrição:</label>
-                        <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
-                    <br>
-                    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
-                </form>
+                    session_start();
+                    if((!isset($_SESSION['email'])) && (!isset($_SESSION['senha'])) && (!isset($_SESSION['nome']))){
+                        header('refresh: 0.01; ../view/index.html');
+                    }
+
+                    $idNota = $_GET['idNota'];
+
+                    $sql = "SELECT idUsuario, nome FROM usuario";
+                    $resposta = mysqli_query($conect->getConexao(), $sql);
+
+                    echo('<form method="GET" action="../php/redirecionamento-compartilhar.php">
+                        <label for="exampleFormControlInput1">Identificador da nota:</label>
+                            <input type="text" class="form-control" id="idNota" name="idNota" placeholder="" value="'.$idNota.'" readonly="readonly">
+                            <label for="exampleFormControlSelect1">Compartilhar com:</label>
+                                <select class="form-control" id="idUsuarioCompartilhado" name="idUsuarioCompartilhado">
+                                    <option value="null">---</option>');
+                                    while($row = mysqli_fetch_array($resposta)){
+                                        echo('<option value="'.$row['idUsuario'].'">'.$row['nome'].'</option>');
+                                    }
+                                echo('</select>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+                                    </form>');
+
+                    $conect->fechando_conexao();
+                ?>
+            <br>
             </div>
         </div>
     </div>

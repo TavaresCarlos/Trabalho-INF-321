@@ -71,20 +71,35 @@
                         header('refresh: 0.01; ../view/index.html');
                     }
 
-                    
                     $usuario = $_GET['nome'];
 
-                    $sql = "SELECT titulo, subtitulo, status, prioridade, data, descricao FROM notas WHERE usuarioProprietario = '$usuario'";
+                    $sql = "SELECT titulo, subtitulo, status, prioridade, data, descricao FROM nota WHERE usuarioProprietario = '$usuario'";
                     $resposta = mysqli_query($conect->getConexao(), $sql);
 
-                    print_r($resposta);
-
-                    /*echo('<div class="row">');
+                    echo('<div class="row">');
                         while($row = mysqli_fetch_array($resposta)){   
-                            //echo();
+                            echo('<div class="col-sm-3">
+                                    <div class="card" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">'.$row['titulo'].' </h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">'.$row['subtitulo'].'</h6>
+                                            <p class="card-text"><strong>Status:</strong> '.$row['status'].'
+                                            <br>
+                                            <strong>Prioridade:</strong> '.$row['prioridade'].'
+                                            <br>
+                                            <strong>Data de criação:</strong> '.$row['data'].'
+                                            <br>
+                                            <strong>Status:</strong> '.$row['status'].'
+                                            <br>
+                                            <strong>Descricao:</strong> '.$row['descricao'].'</p>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-2">
+                                 </div>');
                         }
 
-                    echo('</div>');*/
+                    echo('</div>');
                     $conect->fechando_conexao();
 
                ?>

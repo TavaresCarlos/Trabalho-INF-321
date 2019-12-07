@@ -83,7 +83,8 @@
                                             <h6 class="card-subtitle mb-2 text-muted">Usuário default</h6>
                                             <p class="card-text">Email: '.$row['email'].'</p>
                                             <a href="ver-notas-usuarios-sistema.php?nome='.$row['nome'].'"" class="card-link">Ver notas</a>
-                                            <a href="#" class="card-link">Alterar dados</a>
+                                            <a href="#" class="card-link">Alterar</a>
+                                            <a href="ver-notas-usuarios-sistema.php?nome='.$row['nome'].'" class="card-link">Excluir</a>
                                         </div>
                                     </div>
                                   </div>

@@ -55,8 +55,16 @@
 
 			print_r(session_save_path());
 		}
-		function alterarNota(){
-			
+		function compartilhar(){
+			$idNota = $_GET['idNota'];
+			$idUsuarioCompartilhado = $_GET['idUsuarioCompartilhado'];
+
+			$compartilhar = new compartilhar();
+			session_start();
+
+			$compartilhar->setNota($idNota);
+			$compartilhar->setUsuario($idUsuarioCompartilhado);
+			$compartilhar->setCompartilhamento();	
 		}
 	}
 

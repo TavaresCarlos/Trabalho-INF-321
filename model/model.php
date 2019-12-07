@@ -65,7 +65,7 @@
 			$sql2 = "SELECT tipoUsuario FROM usuario WHERE email = '$email' AND senha = '$senha'";
 			$resposta2 = mysqli_query($conect->getConexao(), $sql2);
 			$resultado2 = mysqli_fetch_assoc($resposta2);
-				
+
 			$tipoUsuario = implode($resultado2);
 
 			//Cria a sessão
@@ -175,6 +175,38 @@
 			$conect->fechando_conexao();	
 			
 			header('refresh: 0.01; ../view/home.html');
+		}
+	}
+
+	class compartilhar{
+		private $idNota;
+		private $idUsuario;
+
+		function setNota($note){
+			$this->idNota = $note;
+		}
+		function setUsuario($user){
+			$this->idUsuario = $user;
+		}
+		function getNota(){
+			return $this->idNota;
+		}
+		function getUsuario(){
+			return $this->idUsuario;
+		}
+
+		//Funções para persistência no banco de dados
+		function setCompartilhamento(){
+			$conect = new conexao();
+
+			$conect->abrindo_conexao();
+
+			$sql = "INSERT INTO compartilhados (idUsuario, idNota) VALUES ('$this->idUsuario', '$this->idNota')";
+			$resposta = mysqli_query($conect->getConexao(), $sql);
+		
+			$conect->fechando_conexao();	
+			
+			header('refresh: 0.01; ../view/historico.php');
 		}
 	}
 

@@ -78,22 +78,24 @@
 
                     $usuarioProprietario = implode($_SESSION['nome']);
          
-                    $sql = "SELECT idNota, titulo, subtitulo, data, prioridade FROM nota WHERE usuarioProprietario = '$usuarioProprietario'";
+                    $sql = "SELECT idNota, titulo, subtitulo, data, prioridade, status, descricao FROM nota WHERE usuarioProprietario = '$usuarioProprietario'";
                     $resposta = mysqli_query($conect->getConexao(), $sql);
 
-                    echo('Visualização compacta<br><br>');
+                    echo('Visualização estendida<br><br>');
 
                     echo('<div class="row">');
                     while($row = mysqli_fetch_array($resposta)){
-                        echo('<div class="col-sm-3">
+                       echo('<div class="col-sm-3">
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">'.$row['titulo'].'</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">'.$row['subtitulo'].'</h6>
                                                 <p class="card-text">'.$row['data'].'
-                                                <br><strong>Prioridade:</strong> '.$row['prioridade'].'</p>
-                                                    <a href="apagar-nota.php?idNota='.$row['idNota'].'" class="card-link">Apagar</a>
-                                                    <a href="compartilhar.php?idNota='.$row['idNota'].'" class="card-link">Compartilhar</a>
+                                                <br><strong>Prioridade:</strong> '.$row['prioridade'].'
+                                                <br><strong>Status:</strong> '.$row['status'].'
+                                                <br><strong>Descricao:</strong> '.$row['descricao'].'</p>
+                                                <a href="apagar-nota.php?idNota='.$row['idNota'].'" class="card-link">Apagar</a>
+                                                <a href="compartilhar.php?idNota='.$row['idNota'].'" class="card-link">Compartilhar</a>
                                     </div>
                                    </div>
                               </div>
@@ -102,7 +104,7 @@
                     }
                     echo('</div>');
 
-                    echo('<br><br><a href="historico-estendido.php" class="card-link">Visualização estendida das notas</a>');
+                    echo('<br><br><a href="historico.php" class="card-link">Visualização compacta das notas</a>');
 
                     $conect->fechando_conexao();
                 ?>
