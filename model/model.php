@@ -181,6 +181,24 @@
 			
 			header('refresh: 0.01; ../view/home.html');
 		}
+		function apagarNota(){
+
+		}
+		function compartilharNotaEntreUsuários(){
+
+		}
+		function historicoNotasCompacto(){
+
+		}
+		function historicoNotasExtendido(){
+
+		}
+		function administradorVerNotas(){
+
+		}
+		function administradorVerUsuarios(){
+			
+		}
 	}
 
 	class compartilhar{
