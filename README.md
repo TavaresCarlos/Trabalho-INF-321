@@ -12,7 +12,7 @@
 <a href="https://github.com/TavaresCarlos/Trabalho-INF-321/blob/master/trabalho-inf-321.pdf">Clique aqui</a>
 <h2>Instalação</h2>
 -Baixe o pacote compacto dos arquivos de instalação.
--Após iniciar o Apache e o PhpMyAdmin, gere o banco de dados copiando o esquema sql do banco.
+<br>-Após iniciar o Apache e o PhpMyAdmin, gere o banco de dados copiando o esquema sql do banco.
 do arquivo "documentação" >> "banco-de-dados" >> "esquema-bd-trabalho.txt".
--Abra o arquivo "model" >> "conexao.php" e altere o nome da váriavel "$bd" (linha 11) de acordo com o nome da base de dados definida.
--Execute o sistema
+<br>-Abra o arquivo "model" >> "conexao.php" e altere o nome da váriavel "$bd" (linha 11) de acordo com o nome da base de dados definida.
+<br>-Execute o sistema
