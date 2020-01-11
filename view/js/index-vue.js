@@ -5,7 +5,7 @@ Vue.component('tela-principal',{
 	template:`
 		<nav class="navbar navbar-expand-lg" id="menu-superior">
 	    	<div class="col-sm-1">
-				<a class="navbar-brand" href="#">{{texto.icone}}</a>
+				<a class="navbar-brand">{{texto.icone}}</a>
 			</div>
 			<div class="col-sm-10">
 			  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +26,8 @@ new Vue({
 	data:{
 		menu:[
 			{id: 1, icone: 'Trust Note', cadastro: 'Sign up to Trust Note', login: 'Login'}
-		]
+		],
+
+		login: 'login'
 	}
 })
