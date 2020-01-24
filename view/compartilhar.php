@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2" id="menu-lateral">
+            <div class="col-sm-3" id="menu-lateral">
                  <img src="img/1.jpg" class="card-img-top" alt="..." id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>

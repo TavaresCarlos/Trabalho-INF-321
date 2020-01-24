@@ -14,8 +14,9 @@ html, body{
 }
 #menu-lateral{
 	width: 100%;
-	height: 413px;
+	height: 555px;
 	background-color: white;
+	margin-left: 10px;
 }
 #apresentação-usuario{
 	margin-left: 1%;

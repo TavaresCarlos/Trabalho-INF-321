@@ -38,7 +38,21 @@
 
   <body>
     <div id="menu">
-	    <tela-principal v-for="texto in menu" v-bind:texto="texto"></tela-principal>
+	    <nav class="navbar navbar-expand-lg" id="menu-superior">
+            <div class="col-sm-1">
+                <a class="navbar-brand">Trust Note</a>
+            </div>
+            <div class="col-sm-10">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--Botao de cadastro com modal-->
+                <button type="button"  class="btn btn-link" id="cadastro" data-toggle="modal" data-target="#myModal">Sign up to Trust Note</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-light" id="botao-login" data-toggle="modal" data-target="#myModal2">Login</button>
+            </div>
+        </nav>
     </div>
 
     <!--Modal do login-->
@@ -53,22 +67,19 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="../php/redirecionamento-login.php" id="login">
+                        <!--<form method="POST" action="../php/redirecionamento-login.php" id="login">-->
                             <label for="">Email:</label>
                                 <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="" required>
                             <label for="">Senha:</label>
                                 <input type="password" class="form-control" id="senha" name="senha" placeholder="" required>
                                 <br>
-                                <button type="submit" class="btn btn-primary">Entrar</button>
+                                <button type="submit" class="btn btn-primary" onclick="home()">Entrar</button>
                                 <button type="submit" class="btn btn-primary">Recuperar senha</button>
-                            </form>
+                        <!--</form>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="js/index-vue.js"></script>
-
   </body>
 </html>

@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2" id="menu-lateral">
+            <div class="col-sm-3" id="menu-lateral">
                  <img src="img/1.jpg" class="card-img-top" alt="Imagem indisponível" id="imagem-perfil">
                 <div id="apresentação-usuario">
                     <h5>Bem-vindo</h5>
@@ -58,7 +58,7 @@
                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="verUsuariosCadastrados()">Ver usuários cadastrados</button>
                 </div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
                <?php
 
                     include '../model/conexao.php';
