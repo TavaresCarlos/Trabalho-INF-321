@@ -14,11 +14,12 @@
 			$nome =  $_POST['nome'];
 			$email = $_POST['email'];
 			$senha = $_POST['senha'];
+			$imagem = $_POST['imagem-perfil'];
 			$tipoUsuario = "default";
 
 			$usuario = new usuario();
 
-			$usuario->construtorUsuario($nome, $email, $senha, $tipoUsuario);
+			$usuario->construtorUsuario($nome, $email, $senha, $imagem, $tipoUsuario);
 			$usuario->inserindoNovoUsuario();
 
 		}

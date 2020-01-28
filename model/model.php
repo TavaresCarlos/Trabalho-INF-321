@@ -6,12 +6,14 @@
 		private $nome;
 		private $email;
 		private $senha;
+		private $imagem;
 		private $tipoUsuario;
 
-		function construtorUsuario($nome, $email, $senha, $tipoUsuario){
+		function construtorUsuario($nome, $email, $senha, $imagem, $tipoUsuario){
 			$this->nome = $nome;
 			$this->email = $email;
 			$this->senha = $senha;
+			$this->imagem = $imagem
 			$this->tipoUsuario = $tipoUsuario;
 		}
 		function setNome($nome){	
