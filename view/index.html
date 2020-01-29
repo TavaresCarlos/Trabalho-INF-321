@@ -94,7 +94,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="../php/redirecionamento-cadastro.php">
+                        <!--<form method="POST" action="../php/redirecionamento-cadastro.php">-->
+                        <form action="../php/copiar-imagem.php" method="POST" enctype="multipart/form-data">
                             <label for="">Nome completo:</label>
                                 <input type="text" class="form-control" id="nome" name="nome" aria-describedby="Nome para cadastro" placeholder="Nome completo" required>
                             <label for="">Email:</label>
@@ -102,8 +103,8 @@
                             <label for="">Senha:</label>
                                 <input type="password" class="form-control" id="senha" name="senha" aria-describedby="Senha do usuário" placeholder="Senha" required> 
                             <label for="">Imagem de perfil</label>
-    							<input type="file" class="form-control-file" id="imagem-perfil" name="imagem-perfil" aria-describedby="Imagem do usuário">  
-                                <br>
+    							<input type="file" class="form-control-file" id="imagem" name="imagem" aria-describedby="Imagem do usuário">  
+                            <br>
                             <button type="submit" class="btn btn-primary" onclick="">Cadastrar</button>
                         </form>
                     </div>
