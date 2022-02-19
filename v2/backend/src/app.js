@@ -1,9 +1,4 @@
 const app = require('fastify')({ logger: true });
-const tasks = require('./models/taskGenerator.js')
-
-/*app.get('/', function (request, reply) {
-  reply.send({ hello: 'world' })
-})*/
 
 //Plugins
 //require('@plugins/bookshelfjs')(app)

@@ -1,36 +1,29 @@
 const tasks = require('../models/taskGenerator.js');
+const people = require('../models/personGenerator.js');
 
-/*module.exports = function (fastify, opts, done) {
-	fastify.get(
-		'/',
-		async (request, reply) => {
-			//ERRO AQUI
-			const items = await fastify.service.Tasks
-				.getAllTasks();
-			console.log(items)
-			//reply.send(items);
-			return items
-		}
-	)
-	done()
-}*/
-
-/*module.exports = function (fastify, opts, done) {
-	fastify.get(
-		'/',
-		async (request, reply) => {
-			return { hello: 'world' }
-		}
-	)
-	done()
-}*/
+const fs = require('fs')
 
 module.exports = function (fastify, opts, done) {
 	fastify.get(
 		'/',
 		async (request, reply) => {
+			return "Server Running";
+		}
+	)
+
+	fastify.get(
+		'/getTasks',
+		async (request, reply) => {
 			return tasks;
 		}
 	)
+
+	fastify.get(
+		'/getPeople',
+		async (request, reply) => {
+			return people;
+		}
+	)
+
 	done()
 }
